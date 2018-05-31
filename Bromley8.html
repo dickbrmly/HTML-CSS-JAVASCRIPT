@@ -1,0 +1,103 @@
+<!doctype html>
+<html class="no-js" lang="English">
+    <head>
+    <style>
+	body {
+	background-color: gray;
+	color: white;
+	}
+
+	output, textarea {
+    background: gray; /* Green */
+    color: white;
+    font-size: 18px;
+	}
+
+	.button {
+    background-color: darkgray; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	}
+
+	input, textarea{
+    color: gray;
+	background: blue;
+	}
+
+	input, label{
+    color: white;
+	background: gray;
+	}
+	
+	.big {
+	font-size: 32px;
+	line-height: 10px;
+	text-align: center;
+	background: gray;
+	color: white;
+	}
+	
+	.small {
+	font-size: 24px;
+	line-height: 30px;
+	text-align: left;
+	background: gray;
+	color: white;
+	}
+	
+	.realSmall {
+	font-size: 18px;
+	line-height: 18px;
+	text-align: left;
+	background: gray;
+	color: white;
+	}
+	</style>
+	<p class="big"> Richard Bromley 5001075854</p>
+	<p class="big"> CS326 Programming Languages</p>
+	<p class="big"> Assignment 8</p>
+	<p class="small"> <br> </p>
+    </head>
+    <body>
+    <p class="big"> Mortage Loan Calculator </p> 
+	<p class="realSmall">Amount Borrowed &nbsp
+	<input type="value" id="amount"> </input>
+	<p class="realSmall">&nbsp &nbsp % Interest Rate &nbsp
+	<input class="percent" type="value" id="irate"> </input>
+	<p class="realSmall"> &nbsp &nbsp &nbsp Term In Years &nbsp
+	<input type="NUMBER" id="term"> </input>
+	<p></p>
+	<button class="button button1" onclick="myFunction()">calculate </button>
+	<p class="realSmall"> &nbsp </p>
+	<p class="realSmall"> &nbsp &nbsp &nbsp Payment Amount
+	<output type="value" id="payment"> </output>
+	<p class="realSmall">Number of Payments
+	<output type="number" id="totalp"> </output>
+	<script>
+		function myFunction() {
+			if (amount.value < 1 || amount.value > 1000000) {
+				alert("Error in amount entered!");
+			}
+			if (irate.value < 0 || irate > 20) {
+				alert("Error in interest entered!");
+			}
+			if (term.value < 1 || term.value > 50) {
+				alert("Error in term in years entered!");
+			}
+			
+			var factor = Math.pow(1 + (irate.value / 1200),term.value * 12);
+			var val = amount.value * (irate.value / 1200) * factor / (factor - 1);
+			val = Math.round(val * 100) / 100;
+			payment.value = val.toLocaleString('en', {maximumSignificantDigits : 6})
+			payment.value = '$'.concat(payment.value);
+			totalp.value = term.value * 12;}
+   </script>
+   	</body>
+</html>

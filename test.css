@@ -1,0 +1,59 @@
+/* Richard Bromley Project 8 */
+
+/* ========================================================================== */
+body {
+	background-color: gray;
+	color: white;
+	}
+
+	output, textarea {
+    background: gray; /* Green */
+    color: white;
+    font-size: 18px;
+	}
+
+	.button {
+    background-color: darkgray; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	}
+
+	input, textarea{
+    color: gray;
+	background: blue;
+	}
+
+	input, label{
+    color: white;
+	background: gray;
+	}
+	
+	.big {
+	font-size: 32px;
+	line-height: 10px;
+	text-align: center;
+	background: gray;
+	color: white;
+	}
+	
+	.small {
+	font-size: 24px;
+	line-height: 30px;
+	text-align: left;
+	background: gray;
+	color: white;
+	}
+	
+	.realSmall {
+	font-size: 18px;
+	line-height: 18px;
+	text-align: left;
+	background: gray;
+	color: white;
