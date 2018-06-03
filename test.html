@@ -1,10 +1,36 @@
-<html>
-<body>
-<link href = "test.css" type="text/css" rel="stylesheet" />
+<!DOCTYPE html>
+
 <title> External Control Files </title>
-<p Class = "big"> Richard Bromley </p>
-<center> <output type="string" id="message"> </output> </center>
-<p class = "big">message </p>
-<script src="test.js"> </script>
+<link href = "test.css" type="text/css" rel="stylesheet" />
+
+<script>
+	var url="https://data.hartford.gov/resource/daux-ukcc.json";
+	var xmlhttp;
+	
+		window.onload=function()
+		{
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = process;
+			xmlhttp.open("GET",url,true);
+			xmlhttp.send();
+		}
+		function process()
+		{
+			if(xmlhttp.readyState==4 && xmlhttp.status == 200)
+			{
+				var restaurantData = JSON.parse(xmlhttp.responseText);
+				for(var x=0; x < restaurantData.length; x++)
+				{
+					document.getElementById('result').innerHTML +=
+					restaurantData[x].blms_dba + "<br/>";
+				}
+			}
+		}
+</script>
+<body>
+	<output type="string" id="message"> </output>
+	<p></p>
+	<script src="test.js"> </script>
+	<div id="result">
+	</div>
 </body>
-</html>
